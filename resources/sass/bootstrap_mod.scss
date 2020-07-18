@@ -1,0 +1,34 @@
+// Fonts
+@import url('https://fonts.googleapis.com/css?family=Nunito');
+
+// Variables
+@import 'variables';
+
+.page-item.active .page-link {
+    z-index: 3;
+    color: #fff;
+    background-color: $primary_color;
+    border-color: $primary_color;
+  }
+
+.btn.btn-primary {
+    background-color: $primary_color;
+    border-color: $primary_color;
+}
+
+.table_posts{
+  margin-left: 2px;
+  margin-right: 2px;
+}
+
+.dropdown-menu > li > a:hover,
+.dropdown-menu > li > a:focus,
+.dropdown-menu > li > a:active,
+input a:focus{
+  text-decoration: none;
+  background-color: $primary_color;
+}
+.form-control:focus {
+  border-color: $primary_color;
+  box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0.075), 0 0 8px $primary_color;
+}
