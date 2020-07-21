@@ -10,10 +10,12 @@
                     <hr/>
                     <div class="row my-4">
                         <div class="col">
-                            <input type="text" name="fullname" class="form-control" placeholder="Full Name">
+                            <input type="text" name="fullname" class="form-control" 
+                             value="{{ request()->get('fullname')}}" placeholder="Full Name">
                         </div>
                         <div class="col">
-                            <input type="text" name="title" class="form-control" placeholder="Post Title">
+                            <input type="text" name="title" class="form-control" 
+                             value="{{ request()->get('title') }}" placeholder="Post Title">
                         </div>
                         <button type="submit" class="btn btn-primary mb-2"><i class="fa fa-search" aria-hidden="true"></i> Search</button>
                     </div>

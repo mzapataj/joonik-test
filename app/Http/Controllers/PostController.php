@@ -30,32 +30,20 @@ class PostController extends Controller
                 $queryBuilder = Post::all();
             
             if ($firstname){
-                $queryBuilder->whereHas("author", function($query) use ($firstname){
-        
-                    $query->where('first_name', 'LIKE', $firstname."%");
-       
+                $queryBuilder->whereHas("author", function($query) use ($firstname, $lastname){
+                        if ($lastname)
+                            $query->where('first_name', 'LIKE', $firstname."%")
+                                  ->where('last_name', 'LIKE', $lastname."%");
+                        else
+                            $query->where('first_name', 'LIKE', $firstname."%")
+                                  ->orWhere('last_name', 'LIKE', $firstname."%");
+
                 });
             }        
 
-            if($lastname){
-                $queryBuilder->whereHas("author", function($query) use ($lastname){
-        
-                    $query->where('last_name', 'LIKE', $lastname."%");
-       
-                });
-            }
-           
-
-        
             $posts = $queryBuilder->get();
-/*            $posts = Post::orWhere('title', 'LIKE', $request->title.'%')
-                ->with(["author" => function($query){
-                    global $firstname, $lastname;
 
-                    $query->orWhere('first_name', 'LIKE', $firstname."%")
-                        ->orWhere('last_name','LIKE', $lastname."%");
-                }])->get();*/
-            return view('home', ['posts' => $posts]);
+            return view('home', ['posts' => $posts, 'request' => $request]);
 
         } else{
 
