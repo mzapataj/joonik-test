@@ -17,7 +17,10 @@
                             <input id="search_title" type="text" name="title" class="form-control" 
                              value="{{ request()->get('title') }}" placeholder="Post Title">
                         </div>
-                        <button id="submit_search" type="button" class="btn btn-primary mb-2"><i class="fa fa-search" aria-hidden="true"></i> Search</button>
+                        <button id="submit_search" type="button" 
+                                class="btn btn-primary mb-2" style="margin-right: 10px;">
+                                <i class="fa fa-search" aria-hidden="true"></i> Search
+                        </button>
                     </div>
                 </form>
             
@@ -32,16 +35,16 @@
                 </div>-->
                 
                 <div class="card-body">
-                    <table class="table-responsive" id="table_posts">
+                    <table class="table-responsive" id="table_posts" width="100%" style="display: none;"> 
                     <thead>
                     <tr>
-                        <th scope="col">Id</th>
-                        <th scope="col">Full name</th>
-                        <th scope="col">Email</th>
-                        <th scope="col">Birth date</th>
-                        <th scope="col" data-orderable="false">Post title</th>
-                        <th scope="col" class="d-none d-sm-block">Post description</th>
-                        <th scope="col">Post datetime</th>
+                        <th scope="col" >Id</th>
+                        <th scope="col" >Full name</th>
+                        <th scope="col" >Email</th>
+                        <th scope="col" >Birth date</th>
+                        <th scope="col"  data-orderable="false">Post title</th>
+                        <th scope="col" class="d-md-none d-lg-block on_init_hide_inline">Post description</th>
+                        <th scope="col" >Post datetime</th>
                     </tr>
                     </thead>
 

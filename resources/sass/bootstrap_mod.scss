@@ -32,3 +32,15 @@ input a:focus{
   border-color: $primary_color;
   box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0.075), 0 0 8px $primary_color;
 }
+
+.dataTables_processing {
+  background: rgba(255, 255, 255, 0.0);
+  border: 0.5px solid rgba(255, 255, 255, 0.0);
+  left: 50%;
+  position: absolute;
+  top: 50%;
+  z-index: 100;
+  }
+.on_init_hide_inline{
+  display: none !important;
+}

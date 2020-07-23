@@ -37333,13 +37333,29 @@ window.axios.defaults.headers.common['X-Requested-With'] = 'XMLHttpRequest';
 /***/ (function(module, exports) {
 
 $(document).ready(function () {
-  var table = $('#table_posts').DataTable({
+  var table = $('#table_posts').on('init.dt', function () {
+    $('#table_posts').css("display", "block"); //Here hide the loader.
+    // $("#MessageContainer").html("Your Message while load Complete");
+  }).DataTable({
     "responsive": true,
     "processing": true,
     "serverSide": true,
     "searching": false,
     "info": true,
     "pageLength": 25,
+    "language": {
+      "processing": "<img src='../loading.gif' / width='50%' height='50%'>"
+    },
+    columnDefs: [{
+      targets: "_all",
+      orderable: false
+    }, {
+      targets: [0, 1, 2, 3, 4, 5, 6],
+      className: "desktop"
+    }, {
+      targets: [0, 1, 2, 3, 4, 6],
+      className: "tablet, mobile"
+    }],
     "ajax": {
       'type': 'GET',
       'url': '/posts/search',
@@ -37349,19 +37365,6 @@ $(document).ready(function () {
       }
     }
   });
-  /*
-      $("#search_fullname").on('keyup', function(){
-          table.columns(0)
-               .search( this.value )
-               .draw();   
-      });
-  
-      $("#search_title").on('keyup', function(){
-          table.columns(4)
-               .search( this.value )
-               .draw();   
-      });*/
-
   $("#submit_search").on("click", function () {
     table.search('').draw();
   });
