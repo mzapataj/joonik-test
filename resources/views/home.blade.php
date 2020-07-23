@@ -4,20 +4,20 @@
 <div class="container">
     <div class="row justify-content-center">
         <div class="col-md-10">
-                <form action="{{route('posts/search')}}" method="POST">
+                <form method="GET">
                     @csrf
                     <h4>{{ __('Posts Information') }} </h4>
                     <hr/>
                     <div class="row my-4">
                         <div class="col">
-                            <input type="text" name="fullname" class="form-control" 
+                            <input id="search_fullname"type="text" name="fullname" class="form-control" 
                              value="{{ request()->get('fullname')}}" placeholder="Full Name">
                         </div>
                         <div class="col">
-                            <input type="text" name="title" class="form-control" 
+                            <input id="search_title" type="text" name="title" class="form-control" 
                              value="{{ request()->get('title') }}" placeholder="Post Title">
                         </div>
-                        <button type="submit" class="btn btn-primary mb-2"><i class="fa fa-search" aria-hidden="true"></i> Search</button>
+                        <button id="submit_search" type="button" class="btn btn-primary mb-2"><i class="fa fa-search" aria-hidden="true"></i> Search</button>
                     </div>
                 </form>
             
@@ -32,7 +32,6 @@
                 </div>-->
                 
                 <div class="card-body">
-                @if (count($posts) > 0)
                     <table class="table-responsive" id="table_posts">
                     <thead>
                     <tr>
@@ -45,27 +44,11 @@
                         <th scope="col">Post datetime</th>
                     </tr>
                     </thead>
-                    <tbody>
-                   
-                        @foreach($posts as $post)
-                        <tr>
-                            <td scope="row">{{$post->author->id}}</td>
-                            <td>{{$post->author->first_name." ".$post->author->last_name}}</td>
-                            <td><a href="mailto://{{$post->author->email}}">{{$post->author->email}}</a></td>
-                            <td>{{date('F m, Y',strtotime($post->author->birthdate))}}</td>
-                            <td>{{$post->title}}</td>
-                            <td class="d-none d-sm-block">{{$post->description}}</td>
-                            <td>{{$post->date?date('F m, Y h:i A',strtotime($post->date)): 'N/A'}}</td>
-                        </tr>
-                        @endforeach
-                  
+
+                    <tbody>               
+
                     </tbody>
                     </table>
-                    @else
-                        <div class="row justify-content-center">
-                            <h5>No Results</h4>
-                        </div>   
-                    @endif
                 </div>
                 
         </div>

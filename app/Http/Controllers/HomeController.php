@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\Author;
 use App\Post;
+use Illuminate\Support\Facades\Session;
 
 class HomeController extends Controller
 {
@@ -25,9 +26,11 @@ class HomeController extends Controller
      */
     public function index()
     {
-        $posts = Post::all();
+        session()->put('recordsTotal', Post::all()->count());
+//        $posts = Post::all();
 
-        return view('home', ['posts' => $posts]);
+//        return view('home', ['posts' => $posts]);
+        return view('home');
     }
 
 }

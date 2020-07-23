@@ -20,4 +20,4 @@ Route::get('/', function () {
 Auth::routes();
 
 Route::get('/home', 'HomeController@index')->name('home');
-Route::post('posts/search', 'PostController@search')->name('posts/search');
+Route::get('posts/search', 'PostController@search')->name('posts/search');
