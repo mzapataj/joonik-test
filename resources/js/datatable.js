@@ -14,9 +14,9 @@ $(document).ready( function () {
             "processing": "<img src='../loading.gif' / width='50%' height='50%'>"
         }, 
         columnDefs: [ 
-        	{ targets:"_all", orderable: false },
+        	{ targets:"_all", orderable: true },
         	{ targets:[0,1,2,3,4,5,6], className: "desktop" },
-        	{ targets:[0,1,2,3,4,6], className: "tablet, mobile" }
+            { targets:[0,1,2,3,4,6], className: "tablet, mobile" },
         ],
         "ajax": { 
             'type': 'GET',

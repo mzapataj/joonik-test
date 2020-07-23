@@ -42,8 +42,8 @@
                         <th scope="col" >Full name</th>
                         <th scope="col" >Email</th>
                         <th scope="col" >Birth date</th>
-                        <th scope="col"  data-orderable="false">Post title</th>
-                        <th scope="col" class="d-md-none d-lg-block on_init_hide_inline">Post description</th>
+                        <th scope="col" data-orderable="false">Post title</th>
+                        <th scope="col" class=".d-none .d-sm-block">Post description</th>
                         <th scope="col" >Post datetime</th>
                     </tr>
                     </thead>

@@ -37348,7 +37348,7 @@ $(document).ready(function () {
     },
     columnDefs: [{
       targets: "_all",
-      orderable: false
+      orderable: true
     }, {
       targets: [0, 1, 2, 3, 4, 5, 6],
       className: "desktop"
